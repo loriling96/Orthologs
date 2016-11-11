@@ -1,4 +1,6 @@
 #script to create a clean file of Aipgene and Nematostella orthologs compatible with STRING database
+#ignores the UBH if a match pair already exists in dictionary. 
+#assumes the input file was already sorted for "A<->B" RBH matches before the "A<-B", "A->B" UBH matches
 
 Usage= "cleanNematostellaID.py inputUBHlist outputUBH"
 import sys
@@ -23,9 +25,10 @@ def write_report(r, filename):
 #RBH_dict={} #create empty dictionary
 UBH_dict={}
 
+#TO DO: make loops more general so it filters by BH_dir value, then asks in key not in dictionary#
 with open(infile, mode ='rU') as F1:
-    header=F1.readline()
-    header2=F1.readline()
+    header=F1.readline() #skips first line of e-value cut off
+    header2=F1.readline() #skips second line of column headers
     for line in F1:
         ls=line.strip().split()
         A_id, B_id = ls[0], ls[1]
@@ -39,11 +42,5 @@ with open(infile, mode ='rU') as F1:
 
 
 #save dictionary to file
-#file2='/Users/lorraineling/Documents/Pringlelab/Aip_Nem_Orthologs/Aip_Nem_RBH3.filt.txt'
-write_report(UBH_dict, outfile)
-
-#with open(outfile, mode = 'w') as F2:
-#   F2.write(header)
-    
 write_report(UBH_dict, outfile)
 
