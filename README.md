@@ -1,3 +1,4 @@
 # Orthologs
-after finding RBH or UBH orthologs need to clean up files for input into other algorithms
-this script was written specifically to for UBH_output.txt from Masa's UBH_e.py script and formatted for input into my STAMSmapping.R script
+This repo documents my attempts to find orthologs of Aiptasia gene models in other cnidarians. 
+The scripts here helped me practice command line BLAST, shell scripting, and connecting to computing clusters. 
+OrthoFinder is well-written software that does all this way more elegantly https://github.com/davidemms/OrthoFinder
