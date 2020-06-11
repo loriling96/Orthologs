@@ -1,4 +1,8 @@
-#script to create a clean file of Aipgene and Nematostella orthologs compatible with STRING database
+# script to create a clean file of Aipgene and Nematostella orthologs compatible with STRING database
+# written specifically for UBH_output.txt from Masa's UBH_e.py script and formatted for input into my STAMSmapping.R script
+# ignores the UBH if a match pair already exists in dictionary. 
+# only works because the input file was already sorted for A<->B matches before the UBH matches
+
 
 Usage= "cleanNematostellaID.py inputUBHlist outputUBH"
 import sys
@@ -41,9 +45,3 @@ with open(infile, mode ='rU') as F1:
 #save dictionary to file
 #file2='/Users/lorraineling/Documents/Pringlelab/Aip_Nem_Orthologs/Aip_Nem_RBH3.filt.txt'
 write_report(UBH_dict, outfile)
-
-#with open(outfile, mode = 'w') as F2:
-#   F2.write(header)
-    
-write_report(UBH_dict, outfile)
-
